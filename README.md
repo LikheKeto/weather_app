@@ -12,6 +12,7 @@ For displaying respective weather icons for each weather daily, hourly or curren
 
 Dynamically changing background image:
 To change background image according to current weather condition of that place, when current weather data is fetched, the weather icon code is used for our purpose. Several background images for specific weather conditions are saved in a static folder. The images are names with respective weather icon code for each weather code. The background image is then set via JS using respective weather icon code for current weather.
+
 General working procedure:
 After the location data is retrieved from user’s browser, the location is embedded to Open Weather API link and fetch request is sent to Open Weather API Servers. This is also an asynchronous task, so promises are used to store data after data is received. The received JSON data is then parsed and stored in a variable. The data now needs to be injected to DOM elements. The required window elements are imported from window object for DOM manipulation. The suitable data is injected using functions. To implement search, when user searches for a specific data, weather data for that city is fetched and replaces the currently shown data.
                 
