@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="style.css" />
+		<link
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
+		<title>Weather App</title>
+	</head>
+
+	<body>
+		<div id="loading"><h1>Loading</h1></div>
+		<div class="container-fluid">
+			<div class="row justify-content-end">
+				<div class="col-6 p-3">
+					<div class="input-group rounded">
+						<input
+							type="search"
+							class="form-control search"
+							placeholder="Search"
+							aria-label="Search"
+							aria-describedby="search-addon"
+						/>
+						<span
+							class="input-group-text border-0"
+							id="search-addon"
+							style="background-color: #ef233c"
+						>
+							<i class="fa fa-search"></i>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-3 col-md-12 p-2 d-flex flex-column">
+					<div id="currentWeather" class="style box">a</div>
+					<div id="todaySummary" class="style box"></div>
+				</div>
+				<div class="col-lg-5 col-md-12 p-2 d-flex flex-column">
+					<div id="dayDetails" class="style box">c</div>
+					<div id="dailyWeather" class="style box"></div>
+				</div>
+				<div class="col-lg-4 col-md-12 p-2 d-flex flex-column">
+					<div id="hourlyWeather" class="style box">e</div>
+				</div>
+			</div>
+		</div>
+		<script src="scripts/setBackground.js"></script>
+		<script src="scripts/helpers.js"></script>
+		<script src="scripts/fetch.js"></script>
+		<script src="scripts/rendering.js"></script>
+		<script src="scripts/search.js"></script>
+	</body>
+</html>
