@@ -9,12 +9,12 @@ const search = () => {
 	loadingScreen.style.display = 'contents';
 
 	fetch(
-		`http://pro.openweathermap.org/geo/1.0/direct?q=${inputData}&limit=1&appid=${process.env.API_KEY}`,
+		`http://pro.openweathermap.org/geo/1.0/direct?q=${inputData}&limit=1&appid=6adcf3c1885c4c266db85e42762c3e4c`,
 	)
 		.then((res) => res.json())
 		.then((data) => {
 			fetch(
-				`https://pro.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&appid=${process.env.API_KEY}`,
+				`https://pro.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&appid=6adcf3c1885c4c266db85e42762c3e4c`,
 			)
 				.then((res) => res.json())
 				.then((searchData) => {

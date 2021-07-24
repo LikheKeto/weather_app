@@ -1,13 +1,13 @@
 //getting geolocation and fetching data
 const fetchData = (lat, long) => {
 	fetch(
-		`https://pro.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely&appid=${process.env.API_KEY}
+		`https://pro.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely&appid=6adcf3c1885c4c266db85e42762c3e4c
 		`,
 	)
 		.then((res) => res.json())
 		.then((data) => {
 			fetch(
-				`http://pro.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${process.env.API_KEY}`,
+				`http://pro.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=6adcf3c1885c4c266db85e42762c3e4c`,
 			)
 				.then((res) => res.json())
 				.then((citydata) => {
