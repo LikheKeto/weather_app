@@ -1,6 +1,18 @@
 //importing id of dom
 const todaySummary = document.getElementById('todaySummary');
 const dailyWeather = document.getElementById('dailyWeather');
+const dayDetails = document.getElementById('dayDetails');
+
+//Output data to Day Details
+const renderdayDetails = (data) => {
+	dayDetails.innerHTML = `
+	<div>
+		<p>Feels Like: ${curateTemp(data.current.feels_like)}</p>
+		<p>Barometer: ${data.current.pressure} mb</p>
+		<p>Wind: ${data.current.wind_speed}</p>
+		<p>Humidity: ${data.current.humidity}</p>
+	<div>`;
+};
 
 //output data to today's summary
 const renderTodaySummary = (data) => {

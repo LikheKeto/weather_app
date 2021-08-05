@@ -16,6 +16,7 @@ const fetchData = (lat, long) => {
 			setBackground(data);
 			renderTodaySummary(data);
 			renderDailyWeather(data);
+			renderdayDetails(data);
 		});
 };
 
