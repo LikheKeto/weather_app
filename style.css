@@ -71,16 +71,27 @@ input {
 	justify-content: center;
 }
 
+#grid-container-daydetail {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.day_detail_box {
+	width: 15rem;
+	margin: 8px;
+}
+
 #grid-container .grid-item {
-	cursor: pointer;
+	cursor: default;
 	background-color: var(--boxcolor);
 	margin-bottom: 0;
 	width: 9rem;
-	padding: 10px;
+	padding: 1rem;
 	margin: 5px;
 	border-radius: 35px;
 	display: flex;
-	height: 11rem;
+	height: 12rem;
 	justify-content: space-between;
 	flex-direction: column;
 	align-items: center;
@@ -89,11 +100,11 @@ input {
 
 .dailyTemp {
 	font-size: 2rem !important;
-	font-weight: 200;
+	font-weight: 200 !important;
 }
 .grid-item p {
 	margin: 0;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	font-weight: 300;
 }
 
@@ -103,6 +114,11 @@ input {
 	position: fixed;
 	background-color: red;
 	z-index: 5;
+	display: grid;
+	place-items: center;
+}
+
+.popup {
 	display: grid;
 	place-items: center;
 }
