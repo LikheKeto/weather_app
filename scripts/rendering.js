@@ -9,8 +9,8 @@ const renderdayDetails = (data) => {
 	<div>
 		<p>Feels Like: ${curateTemp(data.current.feels_like)}</p>
 		<p>Barometer: ${data.current.pressure} mb</p>
-		<p>Wind: ${data.current.wind_speed}</p>
-		<p>Humidity: ${data.current.humidity}</p>
+		<p>Wind: ${data.current.wind_speed} m/sec</p>
+		<p>Humidity: ${data.current.humidity} %</p>
 	<div>`;
 };
 
