@@ -7,7 +7,9 @@ const dayDetails = document.getElementById('dayDetails');
 const renderdayDetails = (data) => {
 	dayDetails.innerHTML = `
 	<div id = "grid-container-daydetail">
-		<p class = "day_detail_box">Feels Like: ${curateTemp(data.current.feels_like)}</p>
+		<p class = "day_detail_box">Feels Like: ${curateTemp(
+			data.current.feels_like,
+		)}</p>
 		<p class = "day_detail_box">Barometer: ${data.current.pressure} mb</p>
 		<p class = "day_detail_box">Wind: ${data.current.wind_speed} m/sec</p>
 		<p class = "day_detail_box">Humidity: ${data.current.humidity} %</p>
@@ -50,7 +52,7 @@ const resetDetails = (data, day) => {
 	day.innerHTML = `
 	<h5>${curateDate(hoveredDay.dt)}</h5>
 	<img src='http://openweathermap.org/img/wn/${hoveredDay.weather[0].icon}.png'/>
-	<p>${curateTemp(hoveredDay.temp.day)}</p>
+	<p class="dailyTemp">${curateTemp(hoveredDay.temp.day)}</p>
 	<p>${hoveredDay.weather[0].description}</p>
 	`;
 };
@@ -71,7 +73,7 @@ const renderDailyWeather = (data) => {
 		item.innerHTML = `
         <h5>${curateDate(day.dt)}</h5>
         <img src='http://openweathermap.org/img/wn/${day.weather[0].icon}.png'/>
-        <p>${curateTemp(day.temp.day)}</p>
+        <p class="dailyTemp">${curateTemp(day.temp.day)}</p>
         <p>${day.weather[0].description}</p>
     `;
 		container.appendChild(item);

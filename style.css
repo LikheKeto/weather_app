@@ -72,25 +72,45 @@ input {
 }
 
 #grid-container .grid-item {
+	cursor: pointer;
 	background-color: var(--boxcolor);
 	margin-bottom: 0;
 	width: 9rem;
 	padding: 10px;
 	margin: 5px;
 	border-radius: 35px;
+	display: flex;
+	height: 11rem;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
 }
 
-#grid-container-daydetail{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+.dailyTemp {
+	font-size: 2rem !important;
+	font-weight: 200;
+}
+.grid-item p {
+	margin: 0;
+	font-size: 0.8rem;
+	font-weight: 300;
 }
 
-.day_detail_box{
-	width: 15rem;
-	margin: 8px;
+#loading {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: red;
+	z-index: 5;
+	display: grid;
+	place-items: center;
 }
+
+.hidden {
+	display: none !important;
+}
+
 /* 
 #grid-container{
   display: grid;
