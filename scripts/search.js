@@ -22,6 +22,7 @@ const search = () => {
 					setBackground(searchData);
 					renderTodaySummary(searchData);
 					renderDailyWeather(searchData);
+					renderdayDetails(searchData);
 				});
 
 			document.getElementsByClassName('search')[0].value = '';
