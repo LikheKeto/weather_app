@@ -6,11 +6,11 @@ const dayDetails = document.getElementById('dayDetails');
 //Output data to Day Details
 const renderdayDetails = (data) => {
 	dayDetails.innerHTML = `
-	<div>
-		<p>Feels Like: ${curateTemp(data.current.feels_like)}</p>
-		<p>Barometer: ${data.current.pressure} mb</p>
-		<p>Wind: ${data.current.wind_speed} m/sec</p>
-		<p>Humidity: ${data.current.humidity} %</p>
+	<div id = "grid-container-daydetail">
+		<p class = "day_detail_box">Feels Like: ${curateTemp(data.current.feels_like)}</p>
+		<p class = "day_detail_box">Barometer: ${data.current.pressure} mb</p>
+		<p class = "day_detail_box">Wind: ${data.current.wind_speed} m/sec</p>
+		<p class = "day_detail_box">Humidity: ${data.current.humidity} %</p>
 	<div>`;
 };
 
