@@ -6,7 +6,7 @@ const search = () => {
 	}
 	const loadingScreen = document.getElementById('loading');
 	//adding diplay style while data loads
-	loadingScreen.style.display = 'contents';
+	loadingScreen.classList.remove('hidden');
 
 	fetch(
 		`http://pro.openweathermap.org/geo/1.0/direct?q=${inputData}&limit=1&appid=${config.API_KEY}`,
