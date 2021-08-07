@@ -12,11 +12,19 @@ const fetchData = (lat, long) => {
 				.then((res) => res.json())
 				.then((citydata) => {
 					data.city = citydata[0].name;
+					data.country = citydata[0].country;
+					console.log(data);
+					
+					rendercurrentWeather(data);
+					
 				});
 			setBackground(data);
 			renderTodaySummary(data);
 			renderDailyWeather(data);
 			renderdayDetails(data);
+			renderhourlyWeather(data);
+			
+			
 		});
 };
 
@@ -24,6 +32,7 @@ const fetchData = (lat, long) => {
 const saveLocation = (position) => {
 	let lat = position.coords.latitude;
 	let long = position.coords.longitude;
+	
 	fetchData(lat, long);
 };
 if (navigator.geolocation) {

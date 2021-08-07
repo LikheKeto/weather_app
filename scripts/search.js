@@ -19,10 +19,13 @@ const search = () => {
 				.then((res) => res.json())
 				.then((searchData) => {
 					searchData.city = data[0].name;
+					searchData.country = data[0].country;
 					setBackground(searchData);
 					renderTodaySummary(searchData);
 					renderDailyWeather(searchData);
 					renderdayDetails(searchData);
+					renderhourlyWeather(searchData);
+					rendercurrentWeather(searchData);
 				});
 
 			document.getElementsByClassName('search')[0].value = '';

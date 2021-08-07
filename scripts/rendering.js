@@ -1,20 +1,71 @@
 //importing id of dom
 const todaySummary = document.getElementById('todaySummary');
 const dailyWeather = document.getElementById('dailyWeather');
+const hourlyWeather = document.getElementById('hourlyWeather');
 const dayDetails = document.getElementById('dayDetails');
+const currentWeather=document.getElementById('currentWeather');
+
+
+
+// output data of hourly
+const renderhourlyWeather = (data) => {
+	hourlyWeather.innerHTML = `
+	<h4>Hourly</h4>
+	<hr/>
+	<div>
+	<p> ${curateTime(data.hourly[3].dt)}</p>
+	<p> ${curateTemp(data.hourly[3].temp)}</p>
+	<img src='http://openweathermap.org/img/wn/${data.hourly[3].weather[0].icon}.png'/>
+	<p> ${(data.hourly[3].weather[0].description)}</p>
+	<p> ${(data.hourly[3].wind_speed)}m/sec</p>
+	<p> ${curateTemp(data.hourly[3].dew_point)}</p>
+	<hr/>
+	<p> ${curateTime(data.hourly[6].dt)}</p>
+	<p> ${curateTemp(data.hourly[6].temp)}</p>
+	<img src='http://openweathermap.org/img/wn/${data.hourly[6].weather[0].icon}.png'/>
+	<p> ${(data.hourly[6].weather[0].description)}</p>
+	<p> ${(data.hourly[6].wind_speed)}m/sec</p>
+	<p> ${(data.hourly[6].dew_point)}</p>
+	<hr/>
+	<p> ${curateTime(data.hourly[9].dt)}</p>
+	<p> ${curateTemp(data.hourly[9].temp)}</p>
+	<img src='http://openweathermap.org/img/wn/${data.hourly[9].weather[0].icon}.png'/>
+	<p> ${(data.hourly[9].weather[0].description)}</p>
+	<p> ${(data.hourly[9].wind_speed)}m/sec</p>
+	<p> ${(data.hourly[9].dew_point)}</p>
+	<hr/>
+	<p> ${curateTime(data.hourly[12].dt)}</p>
+	<p> ${curateTemp(data.hourly[12].temp)}</p>
+	<img src='http://openweathermap.org/img/wn/${data.hourly[12].weather[0].icon}.png'/>
+	<p> ${(data.hourly[12].weather[0].description)}</p>
+	<p> ${(data.hourly[12].wind_speed)}m/sec</p>
+	<p> ${(data.hourly[12].dew_point)}</p>
+	<hr/>
+	<p> ${curateTime(data.hourly[18].dt)}</p>
+	<p> ${curateTemp(data.hourly[18].temp)}</p>
+	<img src='http://openweathermap.org/img/wn/${data.hourly[18].weather[0].icon}.png'/>
+	<p> ${(data.hourly[18].weather[0].description)}</p>
+	<p> ${(data.hourly[18].wind_speed)}m/sec</p>
+	<p> ${(data.hourly[18].dew_point)}</p>
+	<hr/>
+	
+	
+	
+	</div>`;
+};
 
 //Output data to Day Details
 const renderdayDetails = (data) => {
 	dayDetails.innerHTML = `
 	<div id = "grid-container-daydetail">
-		<p class = "day_detail_box">Feels Like: ${curateTemp(
-			data.current.feels_like,
-		)}</p>
+		<p class = "day_detail_box">Feels Like: ${curateTemp(data.current.feels_like)}</p>
 		<p class = "day_detail_box">Barometer: ${data.current.pressure} mb</p>
 		<p class = "day_detail_box">Wind: ${data.current.wind_speed} m/sec</p>
 		<p class = "day_detail_box">Humidity: ${data.current.humidity} %</p>
 	<div>`;
 };
+
+
 
 //output data to today's summary
 const renderTodaySummary = (data) => {
@@ -87,3 +138,23 @@ const renderDailyWeather = (data) => {
 		day.addEventListener('mouseleave', () => resetDetails(data, day));
 	});
 };
+
+//output for current weather
+
+const rendercurrentWeather =(data)=>{
+	currentWeather.innerHTML=`
+	
+	<div class="currentweatherdiv">
+		<h1><img src='http://openweathermap.org/img/wn/${data.hourly[3].weather[0].icon}.png' height="90px" width="90px"/>
+			${curateTemp(data.current.temp)}
+		</h1>
+		<h6>${data.city}, ${data.country}</h6>
+	</div>`
+
+
+
+
+
+};
+
+
