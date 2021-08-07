@@ -4,7 +4,7 @@
 To run this website locally, create a file 'config.js' on root directory. Paste the following code inside the js file:
 ```javascript
 var config = {
-	API_KEY: 'api_key'
+	API_KEY: 'api_key'  //you can ask developers for api key for testing purposes
 };
 ```
 ## Major technologies used:
