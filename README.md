@@ -18,6 +18,8 @@ After the location data is retrieved from user’s browser, the location is embe
                 
 #Running website locally
 To run this website locally, create a file 'config.js' on root directory. Paste the following code inside the js file:
+```javascript
 var config = {
 	API_KEY: *You can request api key from developers for testing purposes*
 };
+```
