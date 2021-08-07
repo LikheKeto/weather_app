@@ -16,3 +16,8 @@ To change background image according to current weather condition of that place,
 General working procedure:
 After the location data is retrieved from user’s browser, the location is embedded to Open Weather API link and fetch request is sent to Open Weather API Servers. This is also an asynchronous task, so promises are used to store data after data is received. The received JSON data is then parsed and stored in a variable. The data now needs to be injected to DOM elements. The required window elements are imported from window object for DOM manipulation. The suitable data is injected using functions. To implement search, when user searches for a specific data, weather data for that city is fetched and replaces the currently shown data.
                 
+#Running website locally
+To run this website locally, create a file 'config.js' on root directory. Paste the following code inside the js file:
+var config = {
+	API_KEY: *You can request api key from developers for testing purposes*,
+};
