@@ -14,29 +14,32 @@ const fetchData = (lat, long) => {
 					data.city = citydata[0].name;
 					data.country = citydata[0].country;
 					console.log(data);
-					
+
 					rendercurrentWeather(data);
-					
 				});
 			setBackground(data);
 			renderTodaySummary(data);
 			renderDailyWeather(data);
 			renderdayDetails(data);
 			renderhourlyWeather(data);
-			
-			
 		});
+};
+
+//redirecting if user denies location access
+const redirect = () => {
+	window.location.replace('search.html');
 };
 
 //getting location
 const saveLocation = (position) => {
 	let lat = position.coords.latitude;
 	let long = position.coords.longitude;
-	
+
 	fetchData(lat, long);
 };
 if (navigator.geolocation) {
-	navigator.geolocation.getCurrentPosition(saveLocation);
+	console.log(GeolocationPositionError.code);
+	navigator.geolocation.getCurrentPosition(saveLocation, redirect);
 } else {
-	alert('looks like you device is too old to know where its at');
+	window.location.replace('search.html');
 }
