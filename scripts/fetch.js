@@ -27,7 +27,7 @@ const fetchData = (lat, long) => {
 
 //redirecting if user denies location access
 const redirect = () => {
-	window.location.replace('search.html');
+	window.location.replace('search.html?search=haha');
 };
 
 //getting location
@@ -38,7 +38,6 @@ const saveLocation = (position) => {
 	fetchData(lat, long);
 };
 if (navigator.geolocation) {
-	console.log(GeolocationPositionError.code);
 	navigator.geolocation.getCurrentPosition(saveLocation, redirect);
 } else {
 	window.location.replace('search.html');

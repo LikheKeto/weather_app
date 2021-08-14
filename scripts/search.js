@@ -1,15 +1,17 @@
 //implementing search
-const search = () => {
-	const inputData = document.getElementsByClassName('search')[0].value;
-	if (inputData === '') {
-		return;
+const search = (cityName) => {
+	if (!cityName) {
+		cityName = document.getElementsByClassName('search')[0].value;
+		if (cityName === '') {
+			return;
+		}
 	}
 	const loadingScreen = document.getElementById('loading');
 	//adding diplay style while data loads
 	loadingScreen.classList.remove('hidden');
 
 	fetch(
-		`http://pro.openweathermap.org/geo/1.0/direct?q=${inputData}&limit=1&appid=${config.API_KEY}`,
+		`http://pro.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${config.API_KEY}`,
 	)
 		.then((res) => res.json())
 		.then((data) => {
