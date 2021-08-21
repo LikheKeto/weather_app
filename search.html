@@ -1,83 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="stylesheet.css">
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap"
-    rel="stylesheet"
-/>
-<!-- bootstrap -->
-<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-<link rel="stylesheet" href="style.css" />
-<link
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-    rel="stylesheet"
-/>
-</head>
-<style>
-.search{
-        border: none;
-        height: 100%;
-        width: 100%;
-        border-radius: 50px;
-        font-size: large;
-        
-    }
-    .search:focus{
-        outline: none;
-    }
-.button{
-    border: none;
-        background-color: white;
-        
-    }
-.input {
-    border: solid black 1px;
-    margin: auto;
-    margin-top: 20%;
-    position: relative;
-    width: 450px;
-    height: 70px;
-    border-radius: 50px;
-    padding-left: 30px;
-    padding-top: 3px;
-}
-.table{
-    
-    border-radius: 50px;
-    height: 20px;
-    width: 400px;
-    
-    
-    
-}
-</style>
-
-<body>
-    <div class="input">
-    <table class="table">
-    <tr>
-    <td>
-        <input type="search"
-                class="search"
-                placeholder="Search for location"
-                aria-label="Search"
-                aria-describedby="search-addon"
-            />
-    </td>
-    <td>
-        <button value="Search" class="button" id="button"><i class="fa fa-search"></i></button>
-    </td>
-    </tr>
-</table>
-</div>
-</body>
-
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap"
+			rel="stylesheet"
+		/>
+				<!-- bootstrap -->
+				<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+				<link
+					href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+					rel="stylesheet"
+				/>
+		
+				<!-- fontawesome -->
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+					integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+					crossorigin="anonymous"
+					referrerpolicy="no-referrer"
+				/>
+				<link rel="stylesheet" href="searchStyle.css" />
+	</head>
+	<body>
+		<div class="input">
+			<div class="container-fluid">
+				<div class="row justify-content-end">
+			<div class="col-12">
+				<div class="input-group rounded">
+					<input style="width: 60vw;"
+						type="search"
+						class="form-control search"
+						placeholder="Search your city"
+						aria-label="Search"
+						aria-describedby="search-addon"
+					/>
+					<span
+						style="cursor: pointer"
+						class="input-group-text border-0"
+						id="search-addon"
+					>
+						<i class="fa fa-search"></i>
+					</span>
+				</div>
+				</div>
+				</div>
+		</div>
+		<script>
+			const button = document.getElementById('search-addon')
+			button.addEventListener('click',()=>{
+				console.log('hello');
+				const text = document.getElementsByClassName('search')[0].value
+				if(text==='')return
+				window.location.replace('index.html?search='+text)
+			})
+		</script>
+	</body>
 </html>

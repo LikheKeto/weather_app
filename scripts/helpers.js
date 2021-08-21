@@ -18,3 +18,13 @@ const curateDate = (time) => {
 	let e = b.toUpperCase();
 	return e;
 };
+
+function checkIfRedirected() {
+	//check if user is redirected from search
+	const url = window.location.href;
+	const field = 'search';
+	if (url.indexOf('?' + field + '=') != 1) {
+		const redirectedCity = url.split('?' + field + '=')[1];
+		return redirectedCity;
+	} else return false;
+}

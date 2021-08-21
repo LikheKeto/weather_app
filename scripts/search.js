@@ -1,5 +1,9 @@
+if (checkIfRedirected()) {
+	search(checkIfRedirected());
+}
+
 //implementing search
-const search = (cityName) => {
+function search(cityName) {
 	if (!cityName) {
 		cityName = document.getElementsByClassName('search')[0].value;
 		if (cityName === '') {
@@ -32,8 +36,11 @@ const search = (cityName) => {
 
 			document.getElementsByClassName('search')[0].value = '';
 		})
-		.catch((err) => alert('something went wrong try again'));
-};
+		.catch((err) => {
+			alert('something went wrong try again');
+			loadingScreen.classList.add('hidden');
+		});
+}
 const button = document.getElementById('search-addon');
 let form = document.getElementsByClassName('search')[0];
 form.addEventListener('keypress', (e) => {
