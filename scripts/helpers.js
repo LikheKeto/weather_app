@@ -1,3 +1,4 @@
+let renderFar = false;
 //curating date and time
 const curateTime = (time) => {
 	let a = new Date(time * 1000).toLocaleTimeString();
@@ -5,7 +6,11 @@ const curateTime = (time) => {
 };
 
 const curateTemp = (temp) => {
-	let curatedTemp = `${Math.round(temp - 273)}°C`;
+	let curatedTemp;
+	console.log(renderFar);
+	if (renderFar) {
+		curatedTemp = `${Math.round(((temp - 273.5) * 9) / 5 + 32)}°F`;
+	} else curatedTemp = `${Math.round(temp - 273)}°C`;
 	return curatedTemp;
 };
 

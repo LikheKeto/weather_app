@@ -7,59 +7,19 @@ const currentWeather = document.getElementById('currentWeather');
 
 // output data of hourly
 const renderhourlyWeather = (data) => {
-	hourlyWeather.innerHTML = `
-	<h4>Hourly</h4>
-	<hr/>
-	<div>
-	<p> ${curateTime(data.hourly[3].dt)}</p>
-	<p> ${curateTemp(data.hourly[3].temp)}</p>
-	<img src='http://openweathermap.org/img/wn/${
-		data.hourly[3].weather[0].icon
-	}.png'/>
-	<p> ${data.hourly[3].weather[0].description}</p>
-	<p> ${data.hourly[3].wind_speed}m/sec</p>
-	<p> ${curateTemp(data.hourly[3].dew_point)}</p>
-	<hr/>
-	<p> ${curateTime(data.hourly[6].dt)}</p>
-	<p> ${curateTemp(data.hourly[6].temp)}</p>
-	<img src='http://openweathermap.org/img/wn/${
-		data.hourly[6].weather[0].icon
-	}.png'/>
-	<p> ${data.hourly[6].weather[0].description}</p>
-	<p> ${data.hourly[6].wind_speed}m/sec</p>
-	<p> ${data.hourly[6].dew_point}</p>
-	<hr/>
-	<p> ${curateTime(data.hourly[9].dt)}</p>
-	<p> ${curateTemp(data.hourly[9].temp)}</p>
-	<img src='http://openweathermap.org/img/wn/${
-		data.hourly[9].weather[0].icon
-	}.png'/>
-	<p> ${data.hourly[9].weather[0].description}</p>
-	<p> ${data.hourly[9].wind_speed}m/sec</p>
-	<p> ${data.hourly[9].dew_point}</p>
-	<hr/>
-	<p> ${curateTime(data.hourly[12].dt)}</p>
-	<p> ${curateTemp(data.hourly[12].temp)}</p>
-	<img src='http://openweathermap.org/img/wn/${
-		data.hourly[12].weather[0].icon
-	}.png'/>
-	<p> ${data.hourly[12].weather[0].description}</p>
-	<p> ${data.hourly[12].wind_speed}m/sec</p>
-	<p> ${data.hourly[12].dew_point}</p>
-	<hr/>
-	<p> ${curateTime(data.hourly[18].dt)}</p>
-	<p> ${curateTemp(data.hourly[18].temp)}</p>
-	<img src='http://openweathermap.org/img/wn/${
-		data.hourly[18].weather[0].icon
-	}.png'/>
-	<p> ${data.hourly[18].weather[0].description}</p>
-	<p> ${data.hourly[18].wind_speed}m/sec</p>
-	<p> ${data.hourly[18].dew_point}</p>
-	<hr/>
-	
-	
-	
-	</div>`;
+	hourlyWeather.innerHTML = '';
+	let hour = data.hourly;
+	for (let i = 0; i < data.hourly.length / 4; i++) {
+		const listItem = document.createElement('li');
+		listItem.innerHTML = `	<p> ${curateTime(hour[i].dt)}</p>
+		<p> ${curateTemp(hour[i].temp)}</p>
+		<img src='http://openweathermap.org/img/wn/${hour[i].weather[0].icon}.png'/>
+		<p> ${hour[i].weather[0].description}</p>
+		<p> ${hour[i].wind_speed}m/sec</p>
+		<p> ${hour[i].dew_point}</p>
+		<hr/>`;
+		hourlyWeather.appendChild(listItem);
+	}
 };
 
 //Output data to Day Details
@@ -157,7 +117,7 @@ const rendercurrentWeather = (data) => {
 			data.hourly[3].weather[0].icon
 		}.png' height="90px" width="90px"/>
 		<h1>${curateTemp(data.current.temp)}
-		</h1>
+		</h1><button id="changeTempUnit">${renderFar ? 'C' : 'F'}</button>
 		<span class="group"><h6>${data.city}, ${
 		data.country
 	}</h6><i class="fas fa-bookmark" data-bs-toggle="tooltip"
@@ -169,4 +129,13 @@ const rendercurrentWeather = (data) => {
 		addButton.classList.add('bookmarked');
 	}
 	addButton.addEventListener('click', () => addBookmark(data.city, addButton));
+	const tempButton = document.getElementById('changeTempUnit');
+	tempButton.addEventListener('click', () => {
+		renderFar = !renderFar;
+		rendercurrentWeather(data);
+		renderTodaySummary(data);
+		renderDailyWeather(data);
+		renderdayDetails(data);
+		renderhourlyWeather(data);
+	});
 };

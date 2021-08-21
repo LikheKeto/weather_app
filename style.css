@@ -171,6 +171,17 @@ input {
 	justify-content: space-between;
 }
 
+#changeTempUnit {
+	font-size: 1.5rem;
+	color: var(--highlight);
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+#changeTempUnit p {
+	padding: 0;
+}
+
 /* styling bookmarks tab */
 .bookmarks {
 	border-right: 3px solid var(--white);
