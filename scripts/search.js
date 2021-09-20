@@ -38,6 +38,10 @@ function search(cityName) {
 		})
 		.catch((err) => {
 			alert('something went wrong try again');
+			if (checkIfRedirected()) {
+				window.location.replace('search.html');
+				return;
+			}
 			loadingScreen.classList.add('hidden');
 		});
 }
