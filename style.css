@@ -171,6 +171,39 @@ input {
 	justify-content: space-between;
 }
 
+#hourlyWeather {
+}
+
+#hourlyWeather li {
+	list-style: none;
+	flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	border-radius: 35px;
+	justify-content: space-evenly;
+	border-radius: 12px;
+	margin-bottom: 1rem;
+	background: rgba(255, 255, 255, 0.3);
+}
+
+#hourlyWeather p {
+	padding: 0;
+}
+
+#hourlyWeather ul {
+	padding: 0;
+	margin: 0;
+	max-height: 150vh;
+	overflow-y: auto;
+}
+
+.block {
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
 #changeTempUnit {
 	font-size: 1.5rem;
 	color: var(--highlight);
@@ -285,4 +318,26 @@ input {
 		position: fixed;
 		transform: translateX(50vw);
 	}
+}
+
+/* customizing scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+	width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--blue);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--highlight);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--txtcolor);
 }

@@ -9,17 +9,29 @@ const currentWeather = document.getElementById('currentWeather');
 const renderhourlyWeather = (data) => {
 	hourlyWeather.innerHTML = '';
 	let hour = data.hourly;
+	const heading = document.createElement('h4');
+	const bar = document.createElement('hr');
+	heading.innerText = 'Hourly';
+	hourlyWeather.appendChild(heading);
+	hourlyWeather.appendChild(bar);
+	const list = document.createElement('ul');
 	for (let i = 0; i < data.hourly.length / 4; i++) {
 		const listItem = document.createElement('li');
-		listItem.innerHTML = `	<p> ${curateTime(hour[i].dt)}</p>
+		listItem.innerHTML = `
+		<p> ${curateTime(hour[i].dt)}</p>
+		<div class="block">
 		<p> ${curateTemp(hour[i].temp)}</p>
 		<img src='http://openweathermap.org/img/wn/${hour[i].weather[0].icon}.png'/>
 		<p> ${hour[i].weather[0].description}</p>
-		<p> ${hour[i].wind_speed}m/sec</p>
-		<p> ${hour[i].dew_point}</p>
+		</div>
+		<div class="block">
+		<p>💨 ${hour[i].wind_speed}m/sec</p>
+		<p>💧 ${hour[i].humidity}%</p>
+		</div>
 		<hr/>`;
-		hourlyWeather.appendChild(listItem);
+		list.appendChild(listItem);
 	}
+	hourlyWeather.appendChild(list);
 };
 
 //Output data to Day Details

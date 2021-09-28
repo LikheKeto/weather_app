@@ -14,13 +14,11 @@ function search(cityName) {
 	//adding diplay style while data loads
 	loadingScreen.classList.remove('hidden');
 
-	fetch(
-		`http://pro.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${config.API_KEY}`,
-	)
+	fetch(`https://radiant-savannah-03752.herokuapp.com/search/${cityName}`)
 		.then((res) => res.json())
 		.then((data) => {
 			fetch(
-				`https://pro.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&appid=${config.API_KEY}`,
+				`https://radiant-savannah-03752.herokuapp.com/onecall/${data[0].lat}/${data[0].lon}`,
 			)
 				.then((res) => res.json())
 				.then((searchData) => {

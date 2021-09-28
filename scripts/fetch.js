@@ -1,13 +1,10 @@
 //getting geolocation and fetching data
 const fetchData = (lat, long) => {
-	fetch(
-		`https://pro.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely&appid=${config.API_KEY}
-		`,
-	)
+	fetch(`https://radiant-savannah-03752.herokuapp.com/onecall/${lat}/${long}`)
 		.then((res) => res.json())
 		.then((data) => {
 			fetch(
-				`http://pro.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${config.API_KEY}`,
+				`https://radiant-savannah-03752.herokuapp.com/geocode/${lat}/${long}`,
 			)
 				.then((res) => res.json())
 				.then((citydata) => {
