@@ -1,12 +1,5 @@
-# weather_app
+# Weather App
 
-## Running website locally
-To run this website locally, create a file 'config.js' in the root directory. Paste the following code inside the js file:
-```javascript
-var config = {
-	API_KEY: 'api_key'  //you can ask developers for api key for testing purposes
-};
-```
 ## Major technologies used:
 The web app uses Geolocation API to get location of end-user:
 When a user opens the app, user is asked for permission to report location information. The Geolocation API provides us with latitude, longitude and accuracy of measurement. This task is asynchronous, so the app cannot initially start without location of user.
