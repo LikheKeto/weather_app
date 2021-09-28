@@ -26,7 +26,7 @@ const renderhourlyWeather = (data) => {
 		</div>
 		<div class="block">
 		<p>💨 ${hour[i].wind_speed}m/sec</p>
-		<p>💧 ${hour[i].humidity}%</p>
+		<p>💧 ${hour[i].pop * 100}%</p>
 		</div>
 		<hr/>`;
 		list.appendChild(listItem);
